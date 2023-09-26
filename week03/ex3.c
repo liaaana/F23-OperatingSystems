@@ -5,8 +5,8 @@
 #define MAX_NAME 64
 #define MAX_PATH 2049
 #define MAX_DATA 1025
-#define MAX_FILES_IN_DIR 256
-#define MAX_DIRS_IN_DIR 256
+#define MAX_FILES_IN_DIR 255
+#define MAX_DIRS_IN_DIR 255
 
 struct Directory {
     char name[MAX_NAME];
