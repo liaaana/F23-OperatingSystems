@@ -1,11 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-long long const_tri(int *const pp, int nn) {
-    for (int i = 3; i <= nn; i++) {
+long long const_tri(int *const pp, int* nn) {
+    if (*nn == 0){
+        return 0;
+    }
+    for (int i = 3; i < *nn; i++) {
         pp[i % 3] = pp[0] + pp[1] + pp[2];
     }
-    return pp[nn % 3];
+    return pp[(*nn-1) % 3];
 }
 
 int main() {
@@ -30,12 +33,11 @@ int main() {
     }
 
     if (n >= 0) {
-        printf("%d-th Tribonacci number: %lld \n", n, const_tri(p, n));
+        printf("%d-th Tribonacci number: %lld \n", n, const_tri(p, &n));
     } else {
         printf("Impossible to count %d-th Tribonacci number, n should be >= 0 \n", n);
     }
     free(p);
     return 0;
 }
-
 
