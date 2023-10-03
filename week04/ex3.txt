@@ -1,0 +1,13 @@
+Explanation:
+
+For n=3:
+On the first iteration, we have 1 process. This process creates 1 child, resulting in a total of 2 processes.
+On the second iteration, each of the 2 processes creates 1 child, yielding 2 processes for each of the original 2 processes. This totals 4 processes.
+On the third iteration, each of the 4 processes creates 1 child, once again doubling the total number of processes, resulting in 8 processes.
+
+Thus, at each iteration, the number of processes doubles, leading to a total of 2 to the power of 3 processes.
+
+For n=5:
+Similarly, at each iteration, the number of processes doubles, leading to a total of 2 to the power of 5 processes. 
+
+This experiment illustrates exponential growth in the number of processes as the value of n increases. 
