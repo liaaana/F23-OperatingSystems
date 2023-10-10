@@ -1,0 +1,10 @@
+Summary of results:
+
+The objective of the study was to evaluate the performance of the algorithm for counting prime numbers by varying the number of threads over a range of 10,000,000.
+1. For one thread (m=1), the baseline time was 6.634 seconds.
+2. With two threads (m=2), the time decreased to 4.148 seconds, indicating a significant speedup.
+3. When four threads (m=4) were used, the time further decreased to 2.779 seconds, indicating improved efficiency due to parallelism.
+4. Increasing the number of threads to ten (m=10) resulted in a reduction in time to 1.924 seconds. The benefits of parallelization are more pronounced.
+5. Even with one hundred threads (m=100), the execution time was 1.795 seconds, indicating a decrease in payoff due to potential contradictions and overhead.
+
+In conclusion, optimizing the number of threads significantly improves performance. However, after a certain threshold, increasing the number of threads may not yield significant gains due to system limitations and increased overhead.

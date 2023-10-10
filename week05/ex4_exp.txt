@@ -1,0 +1,21 @@
+Summary of results:
+In the examination of results from exercises 3 and 4 with n set to 10,000,000, it is evident that increasing the number
+of threads (m) leads to a reduction in execution time. This trend highlights the positive influence of parallelism on
+speeding up computations in both exercises.
+
+However, a closer look at exercise 4 reveals a slight increase in execution times compared to exercise 3.
+The introduction of mutexes, a necessary component for thread safety, comes at a cost.
+The locking and unlocking operations associated with mutexes introduce some overhead,
+impacting the overall performance in exercise 4.
+
+Examining the system time (sys), exercise 4 demonstrates higher sys values compared to exercise 3.
+This distinction points to the additional system-level operations involved in exercise 4 due to the utilization of
+mutexes and global state management.
+
+The difference in execution times between the two exercises is more pronounced with lower values of m.
+As m increases, the efficiency gap narrows, underscoring the benefits of parallelism, which ultimately outweigh
+the mutex-induced overhead in exercise 4. This insight emphasizes the need to consider different parallelization
+strategies and thread management techniques to optimize performance, especially in multithreading applications.
+It is worth noting that the optimal number of threads for prime counting may vary based on factors such as hardware,
+system architecture, and workload characteristics. Nevertheless, the approach in Exercise 4 demonstrates the potential
+for better scalability across a broader range of thread counts.

@@ -1,0 +1,15 @@
+Summary of results:
+
+In this exercise, our focus was on achieving effective inter-process communication (IPC) utilizing both pipes and FIFO (named pipes). The primary goal was to develop a publisher program that spawns n child processes, each tasked with publishing messages to subscribers via named pipes, and a subscriber program that can read these messages from the named pipe associated with its subscriber index.
+
+We understand that creating n named pipes for n subscribers is necessary to establish a direct communication channel between the publisher and each subscriber. This design allows for a clear one-to-one correspondence between the publisher and each subscriber, enabling efficient and organized message delivery. 
+
+By employing separate named pipes for each subscriber, we circumvent contention issues that might arise if a single named pipe were shared among all subscribers. Multiple subscribers attempting to read from a single pipe simultaneously could lead to unpredictable behavior and data corruption. The individual named pipes mitigate this concern, ensuring orderly and conflict-free message processing.
+
+Moreover, named pipes offer a level of subscriber isolation. Each subscriber interacts exclusively with its designated named pipe, allowing them to function independently without affecting the communication of other subscribers. This isolation is crucial in preventing interference with message reception among different subscribers.
+
+Creating distinct named pipes also introduces a form of synchronization. The publisher can transmit messages asynchronously to individual pipes, while subscribers can read from their respective pipes at their own pace. This asynchronous communication ensures efficient message handling, particularly when subscribers have varying processing speeds.
+
+In terms of versatility, named pipes provide flexibility in communication patterns. Unlike unnamed pipes, which primarily facilitate communication between parent and child processes, FIFOs can be employed between unrelated processes. This versatility is especially valuable in scenarios involving multiple subscribers, each operating within its own process.
+
+In summary, the utilization of n named pipes for n subscribers within our messaging system yields a dependable and scalable solution. This approach guarantees accurate message delivery to the intended recipients, eliminating contention and interference. It additionally supports asynchronous and independent communication channels. The selection between named and unnamed pipes ultimately hinges on the specific application requirements, with named pipes offering increased complexity but also greater flexibility in communication patterns.
