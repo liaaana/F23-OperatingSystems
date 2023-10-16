@@ -1,0 +1,29 @@
+For the given set of input data, when we observe the average waiting time (avg_wt) and average turnaround time (avg_tat)
+for both SJF and FCFS, a notable difference becomes apparent. In the case of SJF scheduling, the average waiting time is
+approximately 4.857143, and the average turnaround time is approximately 9.142858. On the other hand, utilizing FCFS
+scheduling yields an average waiting time of 8.000000 and an average turnaround time of 12.285714.
+These results demonstrate that, for this specific set of input data, SJF outperforms FCFS in terms of minimizing waiting
+time and improving the overall turnaround time for processes. SJF's ability to prioritize shorter jobs in this scenario
+leads to more efficient scheduling and better performance.
+
+SJF:
+Advantages:
+Minimizes average waiting time.
+Faster completion of short jobs.
+Efficient resource utilization.
+Disadvantages:
+Requires advance knowledge of job lengths.
+May not be practical in some scenarios.
+
+FCFS:
+Advantages:
+Simple and straightforward.
+Disadvantages:
+Doesn't prioritize short jobs.
+Can result in longer waiting times for processes with longer execution times.
+Poor performance when there is a mix of short and long jobs.
+
+In conclusion, SJF emphasizes efficiency by prioritizing shorter jobs, potentially leading to improved performance in
+terms of waiting and turnaround times.  FCFS is a straightforward method that schedules jobs based on their order of
+arrival, which can result in extended waiting times for later-arriving processes. The choice between SJF and FCFS
+should be determined by the distinct attributes of the workload and the precise demands of the system.

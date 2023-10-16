@@ -1,0 +1,18 @@
+Round-Robin (RR) algorithm against First-Come-First-Served (FCFS) and Shortest Job First (SJF) approaches:
+
+Responce time:
+- RR: Provides acceptable response times by first assigning a quantum slice to each process.
+- FCFS: Response times may be prolonged, especially if the first incoming process is not the quickest to perform.
+- SJF: Produces the shortest reaction times by starting with the smallest job.
+
+Turnaround Time:
+- RR: Has somewhat higher turnaround times than SJF, but beats FCFS for a combination of short and lengthy processes.
+- FCFS: Has longer turnaround times, particularly when longer processes come early and delay shorter ones.
+- SJF: Reduces turnaround times by prioritizing shorter procedures.
+
+Waiting Time:
+- RR: Using cyclic time allotments, maintains a roughly uniform waiting duration for each process. This equilibrium reduces severe instances but not necessarily reducing waiting times.
+- FCFS: This frequently causes in lengthy wait times for processes that arrive later, while they await the conclusion of preceding processes.
+- SJF: Generally results in lower wait times by prioritizing shorter jobs.
+
+In conclusion, the choice of a scheduling algorithm depends on the system's needs and the desired trade-off between fairness and efficiency.

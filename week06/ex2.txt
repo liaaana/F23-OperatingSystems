@@ -1,0 +1,9 @@
+Q1: Change the macro TRI BASE to a small number like 100 and run
+the scheduler again. Compare your results before and after the
+change?
+
+Answer: Changing the TRI_BASE macro to a smaller number like 100 increases the likelihood of a number being considered a triangular number. This means that with a smaller TRI_BASE, more numbers are identified as triangular, resulting in a greater count of triangular numbers being found compared to when TRI_BASE was set to a larger value like 1000000.
+However, it's important to note that changing TRI_BASE does not directly influence the speed of process execution in the scheduler. TRI_BASE does not have a direct impact on the speed or efficiency of process scheduling and execution.
+
+Q2:  Change the arrival time of all processes to make all of them zero, then run the scheduler again. In which order will processes be executed?
+Answer: When the arrival time of all processes is set to zero, the FCFS scheduling algorithm will execute the processes in the order they appear in the process list (data.txt). In current case, all processes will be executed in ascending order of their indices (idx).
