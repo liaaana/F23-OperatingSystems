@@ -108,8 +108,14 @@ ProcessData find_next_process() {
         }
     }
 
-    // if no processes arrived yet we find the closest one for printing
+    // if no processes arrived we find the closest one for printing
     if (location == -1) {
+        for (int i = 0; i < data_size; i++) {
+            if (data[i].burst > 0) {
+                location = i;
+                break;
+            }
+        }
         for (int i = 0; i < data_size; i++) {
             if (data[i].burst > 0 && data[i].at - total_time < data[location].at - total_time) {
                 location = i;
