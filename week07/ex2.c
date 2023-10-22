@@ -5,7 +5,6 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-#define FILE_SIZE (500 * 1024 * 1024)
 
 int main() {
     long pageSize = sysconf(_SC_PAGESIZE);
@@ -20,7 +19,7 @@ int main() {
     unsigned long long currentSize = 0;
     int characterCounter = 0;
 
-    while (currentSize < FILE_SIZE) {
+    while (currentSize < 500 * 1024 * 1024) {
         ch = fgetc(randomFile);
         if (isprint(ch)) {
             fputc(ch, textFile);
@@ -40,7 +39,7 @@ int main() {
         perror("ERROR: Could not open file text.txt for memory mapping.\n");
         return EXIT_FAILURE;
     }
-    off_t fileSize = FILE_SIZE - 1;
+    off_t fileSize = 500 * 1024 * 1024 - 1;
 
     long capitalLettersCounter = 0;
     for (off_t i = 0; i < fileSize; i += chunkSize) {
