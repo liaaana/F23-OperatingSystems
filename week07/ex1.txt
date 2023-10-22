@@ -1,0 +1,25 @@
+First fit throughput: 112.229942 queries/second
+Best fit throughput: 36.946293 queries/second
+Worst fit throughput: 36.984730 queries/second
+
+Explanation of findings:
+1. First Fit throughput: The First Fit allocation algorithm achieved the highest throughput, processing approximately
+126.25 queries per second. This means that it was able to efficiently allocate and deallocate memory for a relatively
+large number of queries in a short amount of time. First Fit works by allocating the first available block that is
+large enough to accommodate the requested memory size. This simplicity and quick decision-making likely contributed
+to its high throughput.
+
+2. Best Fit throughput: The Best Fit allocation algorithm achieved a lower throughput compared to First Fit,
+processing about 36.94 queries per second. Best Fit searches for the closest size block that fits the requested
+memory size, which involves more searching and decision-making, making it slightly slower than First Fit.
+However, it may help in minimizing memory fragmentation.
+
+3. Worst Fit throughput:** The Worst Fit allocation algorithm also achieved a throughput similar to Best Fit,
+processing approximately 36.93 queries per second. Worst Fit locates the largest available block that can
+accommodate the requested memory, which can result in more wasted memory and fragmentation. This might explain why
+it performed similarly to Best Fit in terms of throughput.
+
+In summary, the First Fit algorithm demonstrated the highest throughput due to its simplicity and quick allocation
+strategy. Best Fit and Worst Fit, which involve more searching, showed lower throughputs. The choice of allocation
+algorithm depends on specific requirements and trade-offs, with First Fit being the most efficient in terms of
+throughput but potentially resulting in more memory fragmentation.
