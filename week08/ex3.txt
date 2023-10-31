@@ -1,0 +1,18 @@
+Memory Usage: The memory usage steadily increases as the program allocates 300 MB of memory every second,
+leading to a significant rise in the overall memory consumption.
+Minor Page Faults: As the memory manager swaps pages in and out to accommodate the expanding memory usage,
+the number of minor page faults increases steadily.
+Major Page Faults: The major page faults initially remain at 0, indicating that the system is able to satisfy
+all memory accesses using the data stored in RAM. However, as the memory usage continues to increase and the physical
+memory becomes insufficient to hold all the data, the system starts experiencing major page faults.
+The gradual growth in major page faults suggests that the system is increasingly relying on the disk to fulfill
+memory requests, which can significantly slow down program execution due to the relatively slow access times of
+disk storage compared to RAM.
+"si" and "so": These fields in the `vmstat` output represent the amount of memory swapped in from the disk (`si`)
+and the amount of memory swapped out to the disk (`so`). In the initial stages, `si` and `so` remain relatively
+low or at 0, suggesting that the system does not need to frequently swap memory to or from the disk.
+However, as the memory usage grows, the values of `si` and `so` increase, indicating that the system is using the
+swap space to manage the growing memory demands.
+
+These findings illustrate the dynamic relationship between memory usage, page faults,
+and the system's utilization of swapping to manage memory efficiently.
