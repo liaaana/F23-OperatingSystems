@@ -121,7 +121,7 @@ int main(int argc, char *argv[]) {
     tlb_size = num_pages * 0.2;
     initialize_page_table();
     int tlb_hits = 0;
-    int tlb_index;
+    int idx;
     for (int i = 2; i < argc - 1; i++) {
         printf("-------------------------\n");
         char type;
@@ -138,6 +138,11 @@ int main(int argc, char *argv[]) {
         for (int j = 0; j < tlb_size; j++) {
             if (tlb[j].page == page) {
                 tlb_hits++;
+                for (int d = j; d > 0; d--) {
+                    tlb[d] = tlb[d - 1];
+                }
+                tlb[0].page = page;
+                tlb[0].frame = page_table[page].frame;
                 tlb_hit = true;
                 printf("TLB hit: Page %d found in TLB and frame=%d\n", page, tlb[j].frame);
                 break;
@@ -166,7 +171,7 @@ int main(int argc, char *argv[]) {
             tlb[0].page = page;
             tlb[0].frame = page_table[page].frame;
 
-            int idx = -1;
+            idx = -1;
             for (int d = 1; d < tlb_size; d++) {
                 if (tlb[d].frame == tlb[0].frame) {
                     tlb[d].page = -2;
