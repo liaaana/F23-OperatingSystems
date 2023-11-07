@@ -1,0 +1,19 @@
+Results:
+1: Reference String from gist, 1000 pages, 200 frames
+- NFU Algorithm: Hit ratio is 0.1830
+- Aging Algorithm: Hit ratio is 0.1890
+- Random Algorithm: Hit ratio is 0.1810
+
+2: Reference String from gist, 1000 pages, 100 frames
+- NFU Algorithm: Hit ratio is 0.0890
+- Aging Algorithm: Hit ratio is 0.1020
+- Random Algorithm: Hit ratio is 0.0970
+
+
+- The Aging algorithm consistently outperforms the other two algorithms in terms of hit ratio, regardless of the number of frames. This suggests that the Aging algorithm is more effective in retaining frequently accessed pages.
+
+- The NFU algorithm generally performs better than the Random algorithm, but sometimes Random better
+
+- Reducing the number of frames from 200 to 100 has a negative impact on the hit ratio for all three algorithms, as expected. With fewer frames available, the algorithms have a harder time keeping frequently accessed pages in memory.
+
+To summarize, the Aging algorithm appears to be the most effective among the three for the given reference string, followed by NFU, and Random is the least effective. Additionally, reducing the number of frames results in decreased hit ratios for all three algorithms, which is a common behavior in page replacement algorithms.
