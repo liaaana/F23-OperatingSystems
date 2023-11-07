@@ -7,7 +7,6 @@
 #include <signal.h>
 #include <stdbool.h>
 
-#define MAX_REFERENCE_STRING_ELEMENT 5
 
 typedef struct PTE {
     bool valid;
@@ -80,19 +79,15 @@ int main(int argc, char *argv[]) {
 
     num_pages = atoi(argv[1]);
     pagerPID = atoi(argv[argc - 1]);
-    int reference_string_length = argc - 3;
-    char reference_string[reference_string_length][MAX_REFERENCE_STRING_ELEMENT];
-
-    for (int i = 2; i < argc - 1; i++) {
-        strcpy(reference_string[i - 2], argv[i]);
-    }
 
     initialize_page_table();
 
-    for (int item = 0; item < reference_string_length; item++) {
+    for (int i = 2; i < argc - 1; i++) {
         printf("-------------------------\n");
-        char type = reference_string[item][0];
-        int page = atoi(reference_string[item] + 1);
+        char type;
+        int page;
+        char *reference_string_item = argv[i];
+        sscanf(reference_string_item, "%c%d", &type, &page);
         if (type == 'W') {
             printf("Write Request for page %d\n", page);
         } else if (type == 'R') {
