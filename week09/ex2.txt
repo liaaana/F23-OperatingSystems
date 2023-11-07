@@ -1,8 +1,8 @@
 1. Reference String from Gist (1000 pages, 100 frames)
-   - TLB Miss Ratio: 0.8190
+   - TLB Miss Ratio: 0.8970
 
 2. Reference String from ex2_2.sh (50 pages, 20 frames)
-   - TLB Miss Ratio: 0.7300
+   - TLB Miss Ratio: 0.7400
 
 Findings:
 
