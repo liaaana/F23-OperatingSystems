@@ -120,8 +120,8 @@ int main(int argc, char *argv[]) {
 
     tlb_size = num_pages * 0.2;
     initialize_page_table();
-    int hits = 0;
     int tlb_hits = 0;
+    int tlb_index;
     for (int i = 2; i < argc - 1; i++) {
         printf("-------------------------\n");
         char type;
@@ -148,7 +148,6 @@ int main(int argc, char *argv[]) {
             printf("TLB miss: Page %d not found in TLB\n", page);
             if (page_table[page].valid) {
                 replacement_helper(page);
-                hits++;
                 printf("It is a valid page\n");
             } else {
                 printf("It is not a valid page --> page fault\n"
@@ -160,22 +159,29 @@ int main(int argc, char *argv[]) {
                     sleep(1);
                 }
             }
-            
-            int tlb_index = -1;
-            for (int ind = 0; ind < tlb_size; ind++) {
-                if (tlb[ind].page == -1) {
-                    tlb_index = ind;
+
+            for (int d = tlb_size - 1; d > 0; d--) {
+                tlb[d] = tlb[d - 1];
+            }
+            tlb[0].page = page;
+            tlb[0].frame = page_table[page].frame;
+
+            int idx = -1;
+            for (int d = 1; d < tlb_size; d++) {
+                if (tlb[d].frame == tlb[0].frame) {
+                    tlb[d].page = -2;
+                    tlb[d].frame = -2;
+                    idx = d;
                     break;
                 }
             }
-            if (tlb_index == -1) {
-                printf("No empty place in TLB\n");
-                printf("Choose random to for replacement\\n\n");
-                tlb_index = rand() % tlb_size;
+            if (idx != -1) {
+                for (int d = idx; d < tlb_size - 1; d++) {
+                    tlb[d] = tlb[d + 1];
+                }
             }
-            tlb[tlb_index].page = page;
-            tlb[tlb_index].frame = page_table[page].frame;
-            printf("Updates TLB:");
+
+            printf("Updated TLB:\n");
             print_tlb();
         }
 
@@ -190,9 +196,7 @@ int main(int argc, char *argv[]) {
     }
 
     printf("Done all requests.\n");
-    printf("Hit ratio is %.4f\n", (float) hits / (float) (argc - 3));
     printf("TLB Miss Ratio: %.4f\n", 1 - ((float) tlb_hits / (float) (argc - 3)));
-
 
     printf("MMU sends SIGUSR1 to the pager.\n");
     kill(pagerPID,
