@@ -2,13 +2,13 @@
    - TLB Miss Ratio: 0.8970
 
 2. Reference String from ex2_2.sh (50 pages, 20 frames)
-   - TLB Miss Ratio: 0.7400
+   - TLB Miss Ratio: 0.7500
 
 Findings:
 
 In the first experiment  we observed a TLB miss ratio of 0.8970. This ratio indicates that, in this scenario, the TLB was not particularly effective in reducing page table accesses, as a significant portion of page translations resulted in TLB misses.
 
-In the second experiment using a reference string from ex2_2.sh (comprising 50 pages and 20 frames), we noticed a TLB miss ratio of 0.7400. Here, with fewer pages and frames, the TLB performed relatively better in terms of reducing TLB misses. This finding suggests that the TLB's effectiveness can be influenced by the system's configuration, specifically the number of pages and frames. A smaller system may benefit more from TLB caching.
+In the second experiment using a reference string from ex2_2.sh (comprising 50 pages and 20 frames), we noticed a TLB miss ratio of 0.7500. Here, with fewer pages and frames, the TLB performed relatively better in terms of reducing TLB misses. This finding suggests that the TLB's effectiveness can be influenced by the system's configuration, specifically the number of pages and frames. A smaller system may benefit more from TLB caching.
 
 The TLB miss ratio provides valuable feedback on the efficiency of the TLB design and the need for improvements. To optimize TLB performance, various strategies can be explored, such as different TLB replacement policies, increased TLB size, and adaptive policies that adjust TLB size dynamically based on the workload.
 
