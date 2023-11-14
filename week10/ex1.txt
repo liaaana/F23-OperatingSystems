@@ -1,0 +1,10 @@
+Questions and answers:
+
+1. Did "monitor.c" report an event for "myfile11.txt"?
+Answer: The program tracked a variety of events for "myfile11.txt," including  creation, opening, and change. The program "monitor.c" properly recorded and reported all relevant activity for "myfile11.txt."
+
+2. Did the "monitor.c" report an event for "myfile13.txt"?
+Answer: The program reported only creation. The program did not report specific events related to the modification of "myfile13.txt"  because myfile13.txt is a symbolic link, and changes to the target file do not trigger events for symbolic links in the watched directory.
+
+3. Check the number of hard links and explain the difference.
+Answer: The hard link count for "myfile11.txt" has decreased from 3 to 2, indicating that duplicates have been removed. The first hard link is "myfile11.txt," and the second is "myfile1.txt," which was not eliminated since it no longer exists in the the watching directory.
